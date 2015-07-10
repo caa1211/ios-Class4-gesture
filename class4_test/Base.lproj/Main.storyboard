@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4z-RN-tNg">
+                                <rect key="frame" x="145" y="269" width="30" height="30"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onGoTouchUp:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="UB8-Py-v1E"/>
+                                </connections>
+                            </button>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="monkey" translatesAutoresizingMaskIntoConstraints="NO" id="2Wn-DY-7hY">
+                                <rect key="frame" x="95" y="39" width="100" height="100"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="L26-vK-eyW"/>
+                                    <constraint firstAttribute="width" constant="100" id="mSV-jB-B2d"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="GpR-hT-cWK" appends="YES" id="ad8-8y-nQm"/>
+                                    <outletCollection property="gestureRecognizers" destination="5t5-cl-pQX" appends="YES" id="VDY-Qx-rkY"/>
+                                    <outletCollection property="gestureRecognizers" destination="lcl-T3-pwl" appends="YES" id="Rg2-Iv-bTT"/>
+                                    <outletCollection property="gestureRecognizers" destination="hus-7J-H8t" appends="YES" id="efK-dN-ZX9"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="2Wn-DY-7hY" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="CYW-fU-0Bo"/>
+                            <constraint firstItem="2Wn-DY-7hY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="79" id="OA3-fL-vxg"/>
+                            <constraint firstAttribute="centerX" secondItem="d4z-RN-tNg" secondAttribute="centerX" id="PlA-th-Eg6"/>
+                            <constraint firstAttribute="centerY" secondItem="d4z-RN-tNg" secondAttribute="centerY" id="S1V-up-q4E"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Uwf-gr-Iud" appends="YES" id="TFS-7V-yYf"/>
+                        </connections>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="monkeyImage" destination="2Wn-DY-7hY" id="hek-Df-QLr"/>
+                        <outlet property="monkeyPanGR" destination="5t5-cl-pQX" id="jwM-Ku-roS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Uwf-gr-Iud">
+                    <connections>
+                        <action selector="onViewTap:" destination="vXZ-lx-hvc" id="JZY-3t-W8x"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="GpR-hT-cWK">
+                    <connections>
+                        <action selector="onMonkeyTap:" destination="vXZ-lx-hvc" id="ddA-jx-Fvt"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="5t5-cl-pQX">
+                    <connections>
+                        <action selector="onMonkeyDrag:" destination="vXZ-lx-hvc" id="TkG-Ne-FnR"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.29999999999999999" id="lcl-T3-pwl">
+                    <connections>
+                        <action selector="onMonkeyLongPress:" destination="vXZ-lx-hvc" id="ehy-4a-ZI4"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <pinchGestureRecognizer id="hus-7J-H8t">
+                    <connections>
+                        <action selector="onMonkeyPinch:" destination="vXZ-lx-hvc" id="rqV-pi-qGj"/>
+                    </connections>
+                </pinchGestureRecognizer>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="monkey" width="512" height="512"/>
+    </resources>
+</document>
